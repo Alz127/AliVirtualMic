@@ -18,6 +18,116 @@ This allows you to send your **voice + Spotify + game audio + other application 
 - 🪟 Designed for Windows 10/11
 - 🆓 Open-source project
 
+- ## 🛠️ Building the EXE
+
+If you downloaded the source code from this repository and want to create the Windows `.exe`:
+
+### Requirements
+
+- Windows 10 or Windows 11
+- .NET 9 SDK
+- VB-CABLE installed separately
+
+### 1. Install .NET 9 SDK
+
+Download the **.NET 9 SDK** from Microsoft's official website.
+
+After installing it, open **PowerShell** and check that it works:
+
+```powershell
+dotnet --version
+```
+
+You should see a version beginning with:
+
+```text
+9.
+```
+
+### 2. Open the project folder
+
+Open PowerShell and go to the `src` folder:
+
+```powershell
+cd "C:\Path\To\AliVirtualMic\src"
+```
+
+Replace `C:\Path\To\AliVirtualMic` with the location where you downloaded the project.
+
+For example:
+
+```powershell
+cd "C:\Users\Ali\Downloads\AliVirtualMic\src"
+```
+
+### 3. Build the EXE
+
+Run:
+
+```powershell
+dotnet publish -c Release -r win-x64 --self-contained true
+```
+
+Wait for the build to finish.
+
+If everything worked, you should see:
+
+```text
+Build succeeded
+```
+
+### 4. Find the EXE
+
+The finished application will be inside:
+
+```text
+src\bin\Release\net9.0-windows10.0.19041.0\win-x64\publish\
+```
+
+Inside that folder you will find:
+
+```text
+AliVirtualMic.exe
+```
+
+### 5. Run the application
+
+Double-click:
+
+```text
+AliVirtualMic.exe
+```
+
+You can also create a shortcut to the EXE on your desktop.
+
+### ⚠️ Important
+
+Do **not** copy only `AliVirtualMic.exe` to another computer.
+
+The publish folder contains the other files required by the self-contained application.
+
+If you want to distribute the application, ZIP the **entire `publish` folder** and share the ZIP.
+
+### 📦 Creating a ZIP for distribution
+
+After building:
+
+1. Open the `publish` folder.
+2. Go up one folder so you can see `publish`.
+3. Right-click the `publish` folder.
+4. Select **Compress to ZIP file**.
+5. Rename the ZIP to something like:
+
+```text
+AliVirtualMic-Windows-x64.zip
+```
+
+Users can then:
+
+**Download ZIP → Extract All → Open `AliVirtualMic.exe`**
+
+Remember that **VB-CABLE must also be installed** on the user's computer for the virtual microphone functionality to work.
+
 ## ⚠️ Required: VB-CABLE
 
 **Ali Virtual Mic requires VB-CABLE to work as a virtual microphone.**
